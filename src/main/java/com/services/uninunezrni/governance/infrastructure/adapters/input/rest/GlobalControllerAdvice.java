@@ -1,6 +1,6 @@
 package com.services.uninunezrni.governance.infrastructure.adapters.input.rest;
 
-import com.services.uninunezrni.governance.domain.exception.AgreementNotFoundException;
+import com.services.uninunezrni.governance.domain.exception.agreement.AgreementNotFoundException;
 import com.services.uninunezrni.governance.domain.model.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
