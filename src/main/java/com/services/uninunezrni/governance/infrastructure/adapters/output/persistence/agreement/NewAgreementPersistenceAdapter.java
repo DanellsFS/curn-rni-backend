@@ -13,6 +13,7 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class NewAgreementPersistenceAdapter implements NewAgreementPersistencePort {
+
     private final NewAgreementRepository repository;
     private final NewAgreementPersistenceMapper mapper;
 

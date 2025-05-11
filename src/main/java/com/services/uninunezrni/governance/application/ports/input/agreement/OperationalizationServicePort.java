@@ -5,11 +5,9 @@ import com.services.uninunezrni.governance.domain.model.agreement.Operationaliza
 import java.util.List;
 
 public interface OperationalizationServicePort {
-
+    Operationalization save(Operationalization operationalization);
     Operationalization findById(Long id);
     List<Operationalization> findAll();
-    Operationalization save(Operationalization operationalization);
     Operationalization update(Long id, Operationalization operationalization);
     void deleteById(Long id);
-
 }

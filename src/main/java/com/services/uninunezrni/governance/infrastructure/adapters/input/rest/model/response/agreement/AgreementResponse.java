@@ -10,11 +10,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class AgreementResponse {
-
     private Long id;
     private String name;
     private AgreementType type;
     private LocalDate dateStart;
     private LocalDate dateEnd;
-
 }

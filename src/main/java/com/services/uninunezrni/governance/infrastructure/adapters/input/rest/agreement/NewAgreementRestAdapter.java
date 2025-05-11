@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/new_agreement")
+@RequestMapping("/new-agreement")
 public class NewAgreementRestAdapter {
 
     private final NewAgreementServicePort servicePort;
@@ -26,6 +26,16 @@ public class NewAgreementRestAdapter {
                 .body(restMapper.toNewAgreementResponse(servicePort.save(restMapper.toNewAgreement(request))));
     }
 
+    @GetMapping("/v1/api")
+    public List<NewAgreementResponse> findAll() {
+        return restMapper.toNewAgreementResponseList(servicePort.findAll());
+    }
+
+    @GetMapping("/v1/api/{id}")
+    public NewAgreementResponse findById(@PathVariable Long id) {
+        return restMapper.toNewAgreementResponse(servicePort.findById(id));
+    }
+
     @PutMapping("/v1/api/{id}")
     public NewAgreementResponse update(@PathVariable Long id, @Valid @RequestBody NewAgreementRequest request) {
         return restMapper.toNewAgreementResponse(
@@ -35,15 +45,5 @@ public class NewAgreementRestAdapter {
     @DeleteMapping("/v1/api/{id}")
     public void delete(@PathVariable Long id) {
         servicePort.deleteById(id);
-    }
-
-    @GetMapping("/v1/api")
-    public List<NewAgreementResponse> findAll() {
-        return restMapper.toNewAgreementResponseList(servicePort.findAll());
-    }
-
-    @GetMapping("/v1/api/{id}")
-    public NewAgreementResponse findById(@PathVariable Long id) {
-        return restMapper.toNewAgreementResponse(servicePort.findById(id));
     }
 }

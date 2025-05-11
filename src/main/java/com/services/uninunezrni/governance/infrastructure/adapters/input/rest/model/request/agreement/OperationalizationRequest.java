@@ -12,5 +12,4 @@ public class OperationalizationRequest {
 
     @NotBlank(message = "Field operationalization cannot be empty or null.")
     private String operationalization;
-
 }

@@ -16,6 +16,11 @@ public class OperationalizationService implements OperationalizationServicePort 
     private final OperationalizationPersistencePort persistencePort;
 
     @Override
+    public Operationalization save(Operationalization operationalization) {
+        return persistencePort.save(operationalization);
+    }
+
+    @Override
     public Operationalization findById(Long id) {
         return persistencePort.findById(id)
                 .orElseThrow(OperationalizationNotFoundException::new);
@@ -26,10 +31,6 @@ public class OperationalizationService implements OperationalizationServicePort 
         return persistencePort.findAll();
     }
 
-    @Override
-    public Operationalization save(Operationalization operationalization) {
-        return persistencePort.save(operationalization);
-    }
 
     @Override
     public Operationalization update(Long id, Operationalization operationalization) {

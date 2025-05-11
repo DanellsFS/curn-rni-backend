@@ -6,9 +6,8 @@ import java.util.Optional;
 import java.util.List;
 
 public interface OperationalizationPersistencePort {
-
+    Operationalization save(Operationalization operationalization);
     Optional<Operationalization> findById(Long id);
     List<Operationalization> findAll();
-    Operationalization save(Operationalization operationalization);
     void deleteById(Long id);
 }

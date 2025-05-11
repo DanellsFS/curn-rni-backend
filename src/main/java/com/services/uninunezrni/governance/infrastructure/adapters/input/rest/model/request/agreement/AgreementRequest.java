@@ -28,5 +28,4 @@ public class AgreementRequest {
     @NotNull(message = "Field date end cannot be empty or null.")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateEnd;
-
 }

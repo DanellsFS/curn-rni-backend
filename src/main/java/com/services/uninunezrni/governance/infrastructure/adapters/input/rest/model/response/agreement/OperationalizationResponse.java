@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OperationalizationResponse {
-
     private Long id;
     private String operationalization;
 }

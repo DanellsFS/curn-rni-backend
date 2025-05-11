@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/agreements_excel")
+@RequestMapping("/agreements-excel")
 public class AgreementsExcelRestAdapter {
 
     private final AgreementsExcelServicePort servicePort;
@@ -26,6 +26,16 @@ public class AgreementsExcelRestAdapter {
                 .body(restMapper.toAgreementsExcelResponse(servicePort.save(restMapper.toAgreementsExcel(request))));
     }
 
+    @GetMapping("/v1/api")
+    public List<AgreementsExcelResponse> findAll() {
+        return restMapper.toAgreementsExcelResponseList(servicePort.findAll());
+    }
+
+    @GetMapping("/v1/api/{id}")
+    public AgreementsExcelResponse findById(@PathVariable Long id) {
+        return restMapper.toAgreementsExcelResponse(servicePort.findById(id));
+    }
+
     @PutMapping("/v1/api/{id}")
     public AgreementsExcelResponse update(@PathVariable Long id, @Valid @RequestBody AgreementsExcelRequest request) {
         return restMapper.toAgreementsExcelResponse(
@@ -35,15 +45,5 @@ public class AgreementsExcelRestAdapter {
     @DeleteMapping("/v1/api/{id}")
     public void delete(@PathVariable Long id) {
         servicePort.deleteById(id);
-    }
-
-    @GetMapping("/v1/api")
-    public List<AgreementsExcelResponse> findAll() {
-        return restMapper.toAgreementsExcelResponseList(servicePort.findAll());
-    }
-
-    @GetMapping("/v1/api/{id}")
-    public AgreementsExcelResponse findById(@PathVariable Long id) {
-        return restMapper.toAgreementsExcelResponse(servicePort.findById(id));
     }
 }

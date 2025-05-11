@@ -8,11 +8,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface OperationalizationPersistenceMapper {
-
     OperationalizationEntity toOperationalizationEntity(Operationalization operationalization);
-
     Operationalization toOperationalization(OperationalizationEntity entity);
-
     List<Operationalization> toOperationalizationList(List<OperationalizationEntity> entityList);
-
 }

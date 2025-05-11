@@ -13,8 +13,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "agreements_excel")
 public class AgreementsExcelEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String excelLink;
 }

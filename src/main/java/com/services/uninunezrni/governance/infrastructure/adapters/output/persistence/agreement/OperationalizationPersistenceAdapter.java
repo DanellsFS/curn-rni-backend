@@ -18,6 +18,11 @@ public class OperationalizationPersistenceAdapter implements OperationalizationP
     private final OperationalizationPersistenceMapper mapper;
 
     @Override
+    public Operationalization save(Operationalization operationalization) {
+        return mapper.toOperationalization(repository.save(mapper.toOperationalizationEntity(operationalization)));
+    }
+
+    @Override
     public Optional<Operationalization> findById(Long id) {
         return repository.findById(id)
                 .map(mapper::toOperationalization);
@@ -28,10 +33,6 @@ public class OperationalizationPersistenceAdapter implements OperationalizationP
         return mapper.toOperationalizationList(repository.findAll());
     }
 
-    @Override
-    public Operationalization save(Operationalization operationalization) {
-        return mapper.toOperationalization(repository.save(mapper.toOperationalizationEntity(operationalization)));
-    }
 
     @Override
     public void deleteById(Long id) {

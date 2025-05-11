@@ -22,8 +22,10 @@ public class AgreementEntity {
     private Long id;
 
     private String name;
+
     @Enumerated(EnumType.STRING)
     private AgreementType type;
+
     private LocalDate dateStart;
     private LocalDate dateEnd;
 }

@@ -13,8 +13,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "new_agreement")
 public class NewAgreementEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String newAgreement;
 }

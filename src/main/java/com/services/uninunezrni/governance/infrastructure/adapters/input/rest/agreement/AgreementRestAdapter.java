@@ -26,17 +26,6 @@ public class AgreementRestAdapter {
                 .body(restMapper.toAgreementResponse(servicePort.save(restMapper.toAgreement(request))));
     }
     
-    @PutMapping("/v1/api/{id}")
-    public AgreementResponse update(@PathVariable Long id, @Valid @RequestBody AgreementRequest request) {
-        return restMapper.toAgreementResponse(
-                servicePort.update(id, restMapper.toAgreement(request)));
-    }
-
-    @DeleteMapping("/v1/api/{id}")
-    public void delete(@PathVariable Long id) {
-        servicePort.deleteById(id);
-    }
-
     @GetMapping("/v1/api")
     public List<AgreementResponse> findAll() {
         return restMapper.toAgreementResponseList(servicePort.findAll());
@@ -47,4 +36,14 @@ public class AgreementRestAdapter {
         return restMapper.toAgreementResponse(servicePort.findById(id));
     }
 
+    @PutMapping("/v1/api/{id}")
+    public AgreementResponse update(@PathVariable Long id, @Valid @RequestBody AgreementRequest request) {
+        return restMapper.toAgreementResponse(
+                servicePort.update(id, restMapper.toAgreement(request)));
+    }
+
+    @DeleteMapping("/v1/api/{id}")
+    public void delete(@PathVariable Long id) {
+        servicePort.deleteById(id);
+    }
 }

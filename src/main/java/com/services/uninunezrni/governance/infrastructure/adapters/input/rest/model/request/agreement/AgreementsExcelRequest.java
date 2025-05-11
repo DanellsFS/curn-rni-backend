@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AgreementsExcelRequest {
+
     @NotBlank(message = "Field excel link cannot be empty or null.")
     private String excelLink;
 }

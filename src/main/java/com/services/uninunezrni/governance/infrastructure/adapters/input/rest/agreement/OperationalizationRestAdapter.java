@@ -26,6 +26,16 @@ public class OperationalizationRestAdapter {
                 .body(restMapper.toOperationalizationResponse(servicePort.save(restMapper.toOperationalization(request))));
     }
 
+    @GetMapping("/v1/api")
+    public List<OperationalizationResponse> findAll() {
+        return restMapper.toOperationalizationResponseList(servicePort.findAll());
+    }
+
+    @GetMapping("/v1/api/{id}")
+    public OperationalizationResponse findById(@PathVariable Long id) {
+        return restMapper.toOperationalizationResponse(servicePort.findById(id));
+    }
+
     @PutMapping("/v1/api/{id}")
     public OperationalizationResponse update(@PathVariable Long id, @Valid @RequestBody OperationalizationRequest request) {
         return restMapper.toOperationalizationResponse(
@@ -35,15 +45,5 @@ public class OperationalizationRestAdapter {
     @DeleteMapping("/v1/api/{id}")
     public void delete(@PathVariable Long id) {
         servicePort.deleteById(id);
-    }
-
-    @GetMapping("/v1/api")
-    public List<OperationalizationResponse> findAll() {
-        return restMapper.toOperationalizationResponseList(servicePort.findAll());
-    }
-
-    @GetMapping("/v1/api/{id}")
-    public OperationalizationResponse findById(@PathVariable Long id) {
-        return restMapper.toOperationalizationResponse(servicePort.findById(id));
     }
 }

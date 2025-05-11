@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewAgreementRequest {
+
     @NotBlank(message = "Field cannot be empty or null.")
     private String newAgreement;
 }
