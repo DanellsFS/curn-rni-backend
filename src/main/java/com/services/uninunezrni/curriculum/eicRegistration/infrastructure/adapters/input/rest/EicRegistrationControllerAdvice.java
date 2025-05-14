@@ -1,7 +1,7 @@
 package com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest;
 
+import com.services.uninunezrni.common.error.ErrorResponse;
 import com.services.uninunezrni.curriculum.eicRegistration.domain.exception.EicRegistrationNotFoundException;
-import com.services.uninunezrni.curriculum.eicRegistration.domain.model.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 import static com.services.uninunezrni.curriculum.eicRegistration.utils.ErrorCatalog.*;
-import static com.services.uninunezrni.governance.utils.ErrorCatalog.GENERIC_ERROR;
+import static com.services.uninunezrni.governance.agreement.utils.ErrorCatalog.GENERIC_ERROR;
 
 @RestControllerAdvice
 public class EicRegistrationControllerAdvice {
