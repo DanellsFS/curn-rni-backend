@@ -1,9 +1,8 @@
-package com.services.uninunezrni.governance.agreement.infrastructure.adapters.input.rest.advice;
+package com.services.uninunezrni.curriculum.coilExperience.infrastructure.adapters.input.rest.advice;
 
-import com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest.adapter.EicRegistrationRestAdapter;
-import com.services.uninunezrni.governance.agreement.domain.exception.AgreementNotFoundException;
 import com.services.uninunezrni.common.error.ErrorResponse;
-import com.services.uninunezrni.governance.agreement.infrastructure.adapters.input.rest.adapter.AgreementRestAdapter;
+import com.services.uninunezrni.curriculum.coilExperience.domain.exception.CoilExperienceNotFoundException;
+import com.services.uninunezrni.curriculum.coilExperience.infrastructure.adapters.input.rest.adapter.CoilExperienceRestAdapter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -16,17 +15,17 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static com.services.uninunezrni.governance.agreement.utils.ErrorCatalog.*;
+import static com.services.uninunezrni.curriculum.coilExperience.utils.ErrorCatalog.*;
 
-@RestControllerAdvice(assignableTypes = {AgreementRestAdapter.class})
-public class AgreementControllerAdvice {
+@RestControllerAdvice(assignableTypes = {CoilExperienceRestAdapter.class})
+public class CoilExperienceControllerAdvice {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(AgreementNotFoundException.class)
-    public ErrorResponse handleAgreementNotFoundException () {
+    @ExceptionHandler(CoilExperienceNotFoundException.class)
+    public ErrorResponse handleCoilExperienceNotFoundException () {
         return ErrorResponse.builder()
-                .code(AGREEMENT_NOT_FOUND.getCode())
-                .message(AGREEMENT_NOT_FOUND.getMessage())
+                .code(COILEXPERIENCE_NOT_FOUND.getCode())
+                .message(COILEXPERIENCE_NOT_FOUND.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();
     }
@@ -38,8 +37,8 @@ public class AgreementControllerAdvice {
         BindingResult result = exception.getBindingResult();
 
         return ErrorResponse.builder()
-                .code(INVALID_AGREEMENT.getCode())
-                .message(INVALID_AGREEMENT.getMessage())
+                .code(INVALID_COILEXPERIENCE.getCode())
+                .message(INVALID_COILEXPERIENCE.getMessage())
                 .details(result.getFieldErrors().stream()
                         .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList()))
                 .timestamp(LocalDateTime.now())

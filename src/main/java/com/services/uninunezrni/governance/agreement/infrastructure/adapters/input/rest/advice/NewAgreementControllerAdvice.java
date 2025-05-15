@@ -2,6 +2,8 @@ package com.services.uninunezrni.governance.agreement.infrastructure.adapters.in
 
 import com.services.uninunezrni.governance.agreement.domain.exception.NewAgreementNotFoundException;
 import com.services.uninunezrni.common.error.ErrorResponse;
+import com.services.uninunezrni.governance.agreement.infrastructure.adapters.input.rest.adapter.AgreementRestAdapter;
+import com.services.uninunezrni.governance.agreement.infrastructure.adapters.input.rest.adapter.NewAgreementRestAdapter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -16,7 +18,8 @@ import java.util.stream.Collectors;
 
 import static com.services.uninunezrni.governance.agreement.utils.ErrorCatalog.*;
 
-@RestControllerAdvice
+
+@RestControllerAdvice(assignableTypes = {NewAgreementRestAdapter.class})
 public class NewAgreementControllerAdvice {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)

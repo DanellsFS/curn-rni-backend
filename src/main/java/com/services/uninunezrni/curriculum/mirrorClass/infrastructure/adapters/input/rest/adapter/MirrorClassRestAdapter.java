@@ -1,4 +1,4 @@
-package com.services.uninunezrni.curriculum.mirrorClass.infrastructure.adapters.input.rest;
+package com.services.uninunezrni.curriculum.mirrorClass.infrastructure.adapters.input.rest.adapter;
 
 import com.services.uninunezrni.curriculum.mirrorClass.application.ports.input.MirrorClassServicePort;
 import com.services.uninunezrni.curriculum.mirrorClass.infrastructure.adapters.input.rest.mapper.MirrorClassRestMapper;

@@ -1,4 +1,4 @@
-package com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest;
+package com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest.adapter;
 
 import com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest.model.request.EicRegistrationRequest;
 import com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest.model.response.EicRegistrationResponse;

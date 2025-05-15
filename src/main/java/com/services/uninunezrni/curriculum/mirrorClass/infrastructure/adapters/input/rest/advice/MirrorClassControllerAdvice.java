@@ -1,7 +1,8 @@
-package com.services.uninunezrni.curriculum.eicRegistration.infrastructure.adapters.input.rest;
+package com.services.uninunezrni.curriculum.mirrorClass.infrastructure.adapters.input.rest.advice;
 
 import com.services.uninunezrni.common.error.ErrorResponse;
-import com.services.uninunezrni.curriculum.eicRegistration.domain.exception.EicRegistrationNotFoundException;
+import com.services.uninunezrni.curriculum.mirrorClass.domain.exception.MirrorClassNotFoundException;
+import com.services.uninunezrni.curriculum.mirrorClass.infrastructure.adapters.input.rest.adapter.MirrorClassRestAdapter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -14,18 +15,17 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static com.services.uninunezrni.curriculum.eicRegistration.utils.ErrorCatalog.*;
-import static com.services.uninunezrni.governance.agreement.utils.ErrorCatalog.GENERIC_ERROR;
+import static com.services.uninunezrni.curriculum.mirrorClass.utils.ErrorCatalog.*;
 
-@RestControllerAdvice
-public class EicRegistrationControllerAdvice {
+@RestControllerAdvice(assignableTypes = {MirrorClassRestAdapter.class})
+public class MirrorClassControllerAdvice {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(EicRegistrationNotFoundException.class)
-    public ErrorResponse handleAgreementNotFoundException () {
+    @ExceptionHandler(MirrorClassNotFoundException.class)
+    public ErrorResponse handleMirrorClassNotFoundException() {
         return ErrorResponse.builder()
-                .code(EICREGISTRATION_NOT_FOUND.getCode())
-                .message(EICREGISTRATION_NOT_FOUND.getMessage())
+                .code(MIRRORCLASS_NOT_FOUND.getCode())
+                .message(MIRRORCLASS_NOT_FOUND.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();
     }
@@ -37,8 +37,8 @@ public class EicRegistrationControllerAdvice {
         BindingResult result = exception.getBindingResult();
 
         return ErrorResponse.builder()
-                .code(INVALID_EICREGISTRATION.getCode())
-                .message(INVALID_EICREGISTRATION.getMessage())
+                .code(INVALID_MIRRORCLASS.getCode())
+                .message(INVALID_MIRRORCLASS.getMessage())
                 .details(result.getFieldErrors().stream()
                         .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList()))
                 .timestamp(LocalDateTime.now())

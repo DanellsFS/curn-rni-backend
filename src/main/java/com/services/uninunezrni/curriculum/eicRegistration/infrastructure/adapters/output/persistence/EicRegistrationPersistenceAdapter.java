@@ -30,7 +30,7 @@ public class EicRegistrationPersistenceAdapter implements EicRegistrationPersist
 
     @Override
     public EicRegistration save(EicRegistration eicRegistration) {
-        return mapper.toEicRegistration(repository.save(mapper.toEicRegistrationEntity(eicRegistration)));
+        return mapper.toEicRegistration(repository.save(mapper. toEicRegistrationEntity(eicRegistration)));
     }
 
     @Override
